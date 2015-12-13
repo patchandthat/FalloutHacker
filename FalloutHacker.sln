@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalloutHacker", "FalloutHacker\FalloutHacker.csproj", "{FDA25806-C294-45BE-89F8-AB50A9A224AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FalloutHacker.Tests", "FalloutHacker.Tests\FalloutHacker.Tests.csproj", "{2DD83EDE-1D93-4D98-93F1-6DB867A5DE3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerApp", "HackerApp\HackerApp.csproj", "{90F68758-E1AA-4562-8178-2872EA661EE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDA25806-C294-45BE-89F8-AB50A9A224AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA25806-C294-45BE-89F8-AB50A9A224AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA25806-C294-45BE-89F8-AB50A9A224AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA25806-C294-45BE-89F8-AB50A9A224AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD83EDE-1D93-4D98-93F1-6DB867A5DE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD83EDE-1D93-4D98-93F1-6DB867A5DE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD83EDE-1D93-4D98-93F1-6DB867A5DE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD83EDE-1D93-4D98-93F1-6DB867A5DE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F68758-E1AA-4562-8178-2872EA661EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F68758-E1AA-4562-8178-2872EA661EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F68758-E1AA-4562-8178-2872EA661EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F68758-E1AA-4562-8178-2872EA661EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

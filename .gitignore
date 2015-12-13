@@ -1,0 +1,7 @@
+packages/
+FalloutHacker/obj/
+HackerApp/bin/
+HackerApp/obj/
+FalloutHacker.Tests/obj/
+FalloutHacker.Tests/bin/
+FalloutHacker/bin/
