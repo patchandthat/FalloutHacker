@@ -120,6 +120,8 @@ namespace FalloutHacker
 
         public void EliminatePassword(string guess, int likeness)
         {
+            guess = guess.ToUpper();
+
             if (!_possiblePasswords.Contains(guess))
                 throw new InvalidPasswordException("Guessed password is not a possible password");
 
