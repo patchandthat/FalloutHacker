@@ -13,6 +13,9 @@ namespace FalloutHacker.Tests
         internal const string LowResSample = "Images\\Standard2.jpg";
         internal const string TestImageFilePath3 = "Images\\phototest.jpg";
         internal const string PunctuationSample = "Images\\sample.jpg";
+
+        internal const string RegionOfInterest = "Images\\roi.";
+        internal static readonly string[] roiExts = new []{"bmp", "jpg", "png", "tif"};
         
         public class ReadingRawInput
         {
@@ -97,8 +100,20 @@ End Sub";
                 DebugPrintTerminalImage(Terminal2);
             }
 
+            [Fact]
+            public void ExhaustivelyTryRoiAllFileTypesAndAllEnumValues()
+            {
+                foreach (var extension in roiExts)
+                {
+                    DebugPrintAllTerminalImage($"{RegionOfInterest}{extension}");
+                }
+            }
+
             private void DebugPrintTerminalImage(string image, RegionOfInterest roi = null)
             {
+                _output.WriteLine("");
+                _output.WriteLine($"Image: {image}");
+                _output.WriteLine("");
                 TerminalData result;
                 if (roi != null)
                 {
@@ -112,6 +127,29 @@ End Sub";
                 var rawData = result.Lines.FirstOrDefault();
                 _output.WriteLine(rawData);
             }
+
+            private void DebugPrintAllTerminalImage(string image, RegionOfInterest roi = null)
+            {
+                TerminalData result;
+                if (roi != null)
+                {
+                    result = _sut.AnalyseImage(image, roi);
+                }
+                else
+                {
+                    result = _sut.AnalyseImage(image);
+                }
+
+                foreach (string line in result.Lines)
+                {
+                    _output.WriteLine(line);
+                }
+            }
+
+            //todo
+            /*
+                try some pre-processing of the image, break it down line by line without the memory address parts
+            */
         }
     }
 }

@@ -18,21 +18,33 @@ namespace FalloutHacker
         {
             var raw = new List<string>();
 
-            using (var engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default))
-            using (var image = Pix.LoadFromFile(imagePath))
-            using (Page page = engine.Process(image, PageSegMode.SingleBlock)) //Might want single block mode
+            foreach (EngineMode engineMode in Enum.GetValues(typeof(EngineMode)))
             {
-                string text = page.GetText();
-                raw.Add(text);
-                var confidence = page.GetMeanConfidence();
-                raw.Add($"Confidence: {confidence}");
-                using (var iterator = page.GetIterator())
-                {
-                    //Iterate the region of interest
-                    //Probably want to drag a bounding box for the RoI in GUI.
-                }
-            }
+                if (engineMode == EngineMode.CubeOnly) continue; //clearly incorrect
 
+                foreach (PageSegMode segMode in Enum.GetValues(typeof(PageSegMode)))
+                {
+                    if (segMode == PageSegMode.SingleColumn) continue; //goes bang
+                    try
+                    {
+                        using (var engine = new TesseractEngine("./tessdata", "eng", engineMode))
+                        using (var image = Pix.LoadFromFile(imagePath))
+                        using (Page page = engine.Process(image, segMode))
+                        {
+                            raw.Add($"output from enginemode {engineMode} and pagesegmode {segMode}");
+                            string text = page.GetText();
+                            raw.Add(text);
+                            var confidence = page.GetMeanConfidence();
+                            raw.Add($"Confidence: {confidence}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        raw.Add($"threw {ex.GetType()}, {ex.Message} using EM:{engineMode} and PSM:{segMode}");
+                    }
+                } 
+            }
+            
             return new TerminalData(raw, raw);
         }
 
